@@ -1,9 +1,6 @@
-#  Make sure you have the master file in:
-raw_data/master_file.pkl
-
-# To make summary data (this is only necessary after a new experiment, and it will take 30 minutes), run:
-python make_summary_data.py
-
+# To make summary data (this is only necessary after a new experiment, and it will take 30 minutes):
+* Make sure you have raw_data/master_file.pkl
+* Run python make_summary_data.py
 # This creates the following files in ./summary_data:
 * targets.csv
 

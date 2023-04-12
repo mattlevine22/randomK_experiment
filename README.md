@@ -24,3 +24,5 @@
 
     This file is a dictionary with keys "K_names" and "a_names" and values of dictionaries with keys "m" and values of lists of names. The "K_names" dictionary has keys "m" and values of lists of names of the KID's. The "a_names" dictionary has keys "m" and values of lists of names of the dimerID's.
 
+# To generate plots:
+Run `plotter.ipynb` in Jupyter Notebook

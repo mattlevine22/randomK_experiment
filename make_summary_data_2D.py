@@ -80,8 +80,12 @@ for key, value in tqdm(iteritems):
 df['goodenough'] = df.Linf <= 1
 
 # convert df columns m, targetID, KID, dimerID to int
-int_cols = ['m', 'targetID', 'KID', 'dimerID']
+int_cols = ['m', 'KID', 'dimerID']
 df[int_cols] = df[int_cols].astype(int)
+
+# make new column with targetID as int
+df['targetID_name'] = df.targetID
+df['targetID'] = df.targetID.apply(lambda x: target_names.index(x))
 
 # write df to csv
 df.to_csv(os.path.join(output_data_dir,'summary.csv'), index=False)
@@ -89,6 +93,10 @@ df.to_csv(os.path.join(output_data_dir,'summary.csv'), index=False)
 # write K and a to file
 with open(os.path.join(output_data_dir,'K_random.pkl'), 'wb') as f:
     pickle.dump(K_dict, f)
+
+# write target_names to file
+with open(os.path.join(output_data_dir,'target_names.pkl'), 'wb') as f:
+    pickle.dump(target_names, f)
 
 with open(os.path.join(output_data_dir,'a_opt.pkl'), 'wb') as f:
     pickle.dump(a_dict, f)

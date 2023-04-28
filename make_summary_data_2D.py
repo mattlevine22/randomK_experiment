@@ -67,8 +67,8 @@ for key, value in tqdm(iteritems):
     # update K_dict
     m = int(atts['m'])
     KID = int(atts['KID'])
-    targetID = int(atts['targetID'])
-    dimerID = target_names.index(atts['dimerID'])
+    targetID = target_names.index(atts['targetID'])
+    dimerID = int(atts['dimerID'])
 
     # K_dict[m] : N_Ks x N_dimers
     K_dict[m][KID] = np.squeeze(value['K'])

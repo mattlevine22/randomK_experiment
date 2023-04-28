@@ -1,5 +1,5 @@
 .DS_Store
-raw_data/master_file.pkl
+raw_data/master_file*.pkl
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

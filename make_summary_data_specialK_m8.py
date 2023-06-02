@@ -16,7 +16,7 @@ m_list = [8]
 # Set locations
 master_file = './raw_data/master_file_specialK_m8.pkl' # this is primary raw data from experiments
 voxel_dir = './raw_data/voxel_averages' # this is jacob's library of targets from voxel averaging
-output_data_dir = './summary_data' # this is output directory for summary data that we build in this script.
+output_data_dir = './summary_data_specialK_m8' # this is output directory for summary data that we build in this script.
 
 def make_Kij_names(m):
     """

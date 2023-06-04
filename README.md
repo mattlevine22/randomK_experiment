@@ -26,3 +26,6 @@
 
 # To generate plots:
 Run `plotter.ipynb` in Jupyter Notebook
+
+# To download all summary data (including some files too large for this github) from Dropbox, go to:
+https://www.dropbox.com/scl/fo/mii18inc9dfike6juwtmf/h?dl=0&rlkey=cabl8uwcmn502ppl8hwneg1fn

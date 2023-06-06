@@ -11,6 +11,7 @@ import random
 from pdb import set_trace as bp
 
 N_Ks = 50
+m_list = range(2, 13)
 
 # Set locations
 master_file = './raw_data/master_file.pkl' # this is primary raw data from experiments
@@ -26,15 +27,15 @@ def make_Kij_names(m):
     return [f'K{i[0]}{i[1]}' for i in itertools.combinations_with_replacement(range(1, m+1), 2)]
 
 ## Write label keys for K
-K_names = {m: make_Kij_names(m) for m in range(3, 13)}
-a_names = {m: [f'x{i}' for i in range(2, m+1)] for m in range(3, 13)}
+K_names = {m: make_Kij_names(m) for m in m_list}
+a_names = {m: [f'x{i}' for i in range(2, m+1)] for m in m_list}
 # Write name dicts to file
 with open(os.path.join(output_data_dir, 'name_dict.pkl'), 'wb') as f:
     pickle.dump({'K_names': K_names, 'a_names': a_names}, f)
 
 ## aggregate target curves
 df_targets = pd.DataFrame()
-for m in range(3, 13):
+for m in m_list:
     foo_file = os.path.join(voxel_dir, '{}M_voxel_averages.npy'.format(m))
     x = np.load(foo_file)
     new_df = pd.DataFrame(x)
@@ -53,10 +54,10 @@ with open(master_file, 'rb') as f:
     x = pickle.load(f)
 
 # K_dict[m] : N_Ks x N_dimers
-K_dict = {m: np.nan*np.ones((N_Ks, int(m*(m+1)/2))) for m in range(3, 13)}
+K_dict = {m: np.nan*np.ones((N_Ks, int(m*(m+1)/2))) for m in m_list}
 
 # a_dict[m] : N_Ks x N_dimers x N_targets x N_accesory
-a_dict = {m: np.nan*np.ones((N_Ks, int(m*(m+1)/2), N_targets[m], m-1)) for m in range(3, 13)}
+a_dict = {m: np.nan*np.ones((N_Ks, int(m*(m+1)/2), N_targets[m], m-1)) for m in m_list}
 
 keep_keys = ['m', 'targetID', 'KID', 'dimerID']
 df = pd.DataFrame()
